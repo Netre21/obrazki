@@ -1,0 +1,15 @@
+Do kalibracji wykonujemy dwa testy:
+1. Ruch czysty do przodu
+2. Obrót wokół własnej osi
+Do kalibracji zmieniamy wartości mnożników wielkości kół i odległości między nimi w pliku  elektron_Tower_control.yaml.
+Kontroler tune zmienia się pliku launch ( chyba 1 diff , 0 tune )
+
+Test 1
+Zadajemy robotu przejechanie jednej kratki do przodu. Po zmierzeniu za pomocą gazebo_odom, robot przejechał 3.5322. 
+Oznacz to , że trzeba pomnożyć rozmiar kół przez 3.5322.
+Po zmienieniu mnożnika rozmiaru kół, robot przejechał 0.9956. Jak widzimy rozmiar kół jest prawie idealnie dobrany.
+
+Test 2
+Każemy robotu wykonać obrót wokół własnej osi. Zadaliśmy obrót o -Pi/2, a robot skończył ruch na kącie -1.17.
+Trzeba pomnożyć odległość między kołami o (Pi/2)/1.17. 
+Po wprowadzeniu poprawki i powótrzeniu testu, robot otrzymał -1.5666. Wynik jest zadowalający.
